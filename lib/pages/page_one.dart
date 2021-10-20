@@ -23,13 +23,26 @@ class PageOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      child: ListView.builder(
-        itemCount: 12,
-        itemBuilder: (context, pos) => ListTile(
-          leading: const Icon(Icons.account_circle),
-          title: Text(names[pos]),
-          subtitle: const Text('07718239773'),
-        ),
+      child: Column(
+        children: [
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Contacts',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 12,
+              itemBuilder: (context, pos) => ListTile(
+                leading: const Icon(Icons.account_circle),
+                title: Text(names[pos]),
+                subtitle: const Text('07718239773'),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

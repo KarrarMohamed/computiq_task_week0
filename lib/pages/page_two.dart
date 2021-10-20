@@ -23,16 +23,32 @@ class PageTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      child: ListView.builder(
-        itemCount: 12,
-        itemBuilder: (context, pos) => ListTile(
-          leading: Icon(
-            pos.isEven ? Icons.arrow_downward : Icons.arrow_upward,
-            color: pos.isEven ? Colors.green : Colors.blue,
+      child: Column(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Recents',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30
+              ),
+            ),
           ),
-          title: Text(names[pos]),
-          subtitle: const Text('07718239773'),
-        ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 12,
+              itemBuilder: (context, pos) => ListTile(
+                leading: Icon(
+                  pos.isEven ? Icons.arrow_downward : Icons.arrow_upward,
+                  color: pos.isEven ? Colors.green : Colors.blue,
+                ),
+                title: Text(names[pos]),
+                subtitle: const Text('07718239773'),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
